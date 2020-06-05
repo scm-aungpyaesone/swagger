@@ -9,4 +9,4 @@
   `http://localhost:9000/`
 
 1. Test API URL   
-  `http://localhost:8080/pets`
+  `http://localhost:8080/`

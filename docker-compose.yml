@@ -1,0 +1,22 @@
+version: "2"
+services:
+  swagger-ui:
+    image: swaggerapi/swagger-ui
+    container_name: "swagger-ui"
+    ports:
+      - "9000:8080"
+    volumes:
+      - ./api.yml:/api.yml
+    environment:
+      SWAGGER_JSON: /api.yml
+
+  openapi_mock:
+    image: muonsoft/openapi-mock
+    container_name: "openapi-mock-server"
+    environment:
+      OPENAPI_MOCK_SPECIFICATION_URL: /api.yml
+      OPENAPI_MOCK_CORS_ENABLED: 1
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./api.yml:/api.yml
